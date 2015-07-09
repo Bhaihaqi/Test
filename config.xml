@@ -1,5 +1,5 @@
 <widget id="com.example.hello" version="1">
-        <name>Salary/name>
+        <name>Salary</name>
         <description>
             A sample Apache Cordova application that responds to the deviceready event.
         </description>

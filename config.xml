@@ -1,7 +1,7 @@
 <widget id="com.example.hello" version="1">
         <name>Salary</name>
         <description>
-            A sample Apache Cordova application that responds to the deviceready event.
+			First try Phone Gap
         </description>
         <author email="bhaihaqi@gmail.com" href="http://phonegap.com">
             Apache Cordova Team
@@ -9,5 +9,6 @@
         <content src="index.html" />
         <access origin="*" />
     
-		<icon src="icon.png" />
+		<icon src="images/icon.png" />
+		 <splash src="images/sekolah.jpg" />
 </widget>

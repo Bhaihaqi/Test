@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Salary</title>
+<style>
+	div
+	{
+		width:230px;
+		background:lightblue;
+		border:dotted 5px black;
+		padding-top:0px;
+		padding-bottom:10px;
+		margin-bottom:10px;
+		border-radius:25px;
+		border-bottom-right-radius:50px;
+		box-shadow:10px 10px 5px #0547FC;
+	}
+	@font-face
+		{
+			font-family:Aqifont;
+			src:url("AlexBrush-Regular.ttf");
+		}
+		h1
+		{
+			font-family:Aqifont;
+		}
+
+</style>
+<script>
+		window.onload = function()
+		{
+		
+		}
+
+
+
+		function myFunction() 
+		{
+		
+			table2.hidden = false;
+			var message, x, OT, GP, Tx, Ps, Txx,  Nt = "";
+			message = document.getElementById("message");
+			x = document.getElementById("Hours").value;
+			
+			OT = x - 40;
+			Ps = document.getElementById("Position").value;
+			if(Ps == "Staff")
+			{
+				if(OT <= 0)
+					GP = 6.5 * x;
+				else
+					GP = (6.5 * 40) + (OT * (6.5*1.5))
+			}
+			if(Ps == "Supervisor")
+			{
+				if(OT <= 0)
+					GP = 7.5 * x;
+				else
+					GP = (7.5 * 40) + (OT * (7.5*1.5))
+			}
+			if(Ps == "Manager")
+			{
+				if(OT <= 0)
+					GP = 15 * x;
+				else
+					GP = (15 * 40) + (OT * (15*1.5))
+			}
+			
+			
+			Txx = document.getElementById("TaxCheck");
+			if(Txx.checked)
+			{
+				Tx = 0;
+			}
+			else
+			{
+				Tx = 0.06;
+			}
+			Tx = Tx * GP;
+			Nt = GP - Tx;
+			
+			
+			
+			document.getElementById("d1").value = "RM " +GP.toFixed(2);
+			document.getElementById("d2").value = "RM " +Tx.toFixed(2);
+			document.getElementById("d3").value = "RM " +Nt.toFixed(2);
+			
+		}
+		function checkPosition()
+			{
+				var x = document.getElementById("Position").value;
+				
+				if (x == "Supervisor" || x == "Manager")
+				{
+					document.getElementById("TaxCheck").disabled = false;
+					document.getElementById("Calculate").disabled = false;
+				}
+				else if (x == "Staff")
+				{
+					document.getElementById("TaxCheck").disabled = true;
+					document.getElementById("Calculate").disabled = false;
+					document.getElementById("TaxCheck").checked = false;
+				}
+				else if (x == "Select")
+				{
+					document.getElementById("TaxCheck").disabled = true;
+					document.getElementById("Calculate").disabled = true;
+				}
+			}
+		
+		</script>
+</head>
+<body  bgcolor="#0497D6" >
+
+<br><center>
+
+<div>
+<form>
+<h1> Salary </h1>
+<table width="180"  border="0" bgcolor="#00ABF5" >
+	<tr><td>Hours</td><td>:</td><td> <input type="number" id="Hours" min = "1" max = "100" required="required"></td></tr>
+	<tr><td>Position</td><td>:</td><td>
+		<select name="Position" id="Position" onchange="checkPosition()" >
+		<option value="Select">Select</option>
+		<option value="Staff">Staff</option>
+		<option value="Supervisor">Supervisor</option>
+		<option value="Manager">Manager</option></td></tr>
+	<tr><td></td><td></td><td><input type="checkbox" id="TaxCheck" value="Tax" disabled=true>Tax Exempt</input></td></tr>
+	<tr><td></td><td></td><td><input type="button" value="Calculate" id="Calculate" onclick="myFunction()" disabled=true /></td></tr>
+</table>
+</form>
+</div>
+<div>
+	<h1> Result </h1>
+		<table width="180" id="table2" hidden=true border="0" bgcolor="00B3FF">
+		<tr><td>Gross Pay </td><td>:</td><td width="50"><input type="text" id="d1" size="6" bgcolor="00B3FF" disabled=true></td></tr>
+		<tr><td>(-) Taxes </td><td>:</td><td width="50"><input type="text" id="d2" size="6" bgcolor="00B3FF" disabled=true></td></tr>
+		<tr><td>Nett </td><td>:</td><td width="50"><input type="text" id="d3" size="6" bgcolor="00B3FF" disabled=true></tr>
+		</table>
+</div>
+</center>
+
+</body>
+</html>
+</html>

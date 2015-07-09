@@ -27,9 +27,17 @@
 
 </style>
 <script>
-		window.onload = function()
+		function pageLoaded()
 		{
-		
+			document.addEventListener("deviceready",siapsedia,false);
+		}
+		function siapsedia()
+		{
+			navigator.notification.alert("rileksss..",mulakerja,"Salary Test Apps","sudah");
+		}
+		function mulakerja()
+		{
+			document.getElementById("msg").innerHTML = "Kerja Boleh Run";
 		}
 
 
@@ -113,7 +121,7 @@
 <body  bgcolor="#0497D6" >
 
 <br><center>
-
+<p id="msg"> </p>
 <div>
 <form>
 <h1> Salary </h1>

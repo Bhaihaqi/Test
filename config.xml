@@ -17,7 +17,7 @@
         Register
     </author>
 	<icon src="images/icon2.png" />
-	<gap:splash src="Sekolah.jpg" />
+	<gap:splash src="images/Switch.jpg" />
 	
 	<feature name="http://api.phonegap.com/1.0/file" />
 	

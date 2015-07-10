@@ -7,21 +7,20 @@
 
     <!-- versionCode is optional and Android only -->
 
-    <name>Register</name>
+    <name>DIAMOND</name>
 
     <description>
-        Testing out phonegap build
+        An example for phonegap build docs. 
     </description>
 
-    <author href="" email="bhaihaqi@gmail.com">
-        Register
+    <author href="https://build.phonegap.com" email="support@phonegap.com">
+        Hardeep Shoker 
     </author>
-	<icon src="images/icon2.png" />
-	<gap:splash src="images/Switch.jpg" />
 	
-	<feature name="http://api.phonegap.com/1.0/file" />
-	
+	<icon src="images/icon.png" />
+	<splash src="images/switch.jpg" />
 	<gap:plugin name="org.apache.cordova.camera" />
 	<gap:plugin name="org.apache.cordova.dialogs" />
+	<feature name="http://api.phonegap.com/1.0/file" />
 	<gap:plugin name="org.apache.cordova.device-motion" version="0.2.10" />
 </widget>

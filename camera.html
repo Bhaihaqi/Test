@@ -2,32 +2,61 @@
 <html>
 <head>
 <title>Camera</title>
-	<style>
-	
-	</style>
+<style>
+
+</style>
+<script src="cordova.js" /></script>
 <script>
-	// caniuse.com
-
-	function pageReady()
+		function pageLoaded()
 	{
-		navigator.camera.getPicture(displayPic,errorPic,{quality:70});	
+		document.getEventListener("deviceready",phoneReady,false);
 	}
 	
-	function displayPic(imageURL)
+	function phoneReady()
 	{
-		document.getElementById("pix").src = imageURL;
 	}
 	
-	function errorPic()
-	{
+		function initCamera() 
+		{
+			alert();
+			//navigator.camera.getPicture(onSuccess,onFail,{quality:80});	
+			var options = 
+			{
+				quqlity:80,
+				destinationType:DATA_URL,//FILE_URL,NATIVE_URL
+				allowEdit:true,
+				encodingType:JPEG,
+				PictureSourceType:CAMERA //PHOTOLIBARY,CAMERA,SAVEDPHOTOALBUM
+			
+			}
 		
-	}
-	
-	
-</script>
-
+			navigator.camera.getPicture(onSuccess,onFail,options);
+		}
+		function onSuccess(imageURL)
+		{
+			document.getElementById("pic").src = "data:image/jpeg;base64," +imageURL;
+			
+		}
+		function onFail(message)
+		{
+			alert("error la gilerr !!");
+		}
+		
+		</script>
 </head>
-	<body onload="pageReady()">
-		<h1 id="pix"></h1>
-	</body>
+<body  bgcolor="#0497D6" >
+
+<br><center>
+<h1> CAmera </h1>
+<p id="msg"> </p>
+<a href="index.html">Back</a><br /><br />
+<div>
+<input type="button" value="Take Picture" id="Camera" onclick="initCamera()"  />
+</br />
+
+		<img src="" id="pic" height="400" />
+</center>
+
+</body>
+</html>
 </html>

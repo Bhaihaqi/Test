@@ -1,61 +1,48 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Camera</title>
-<style>
-
-</style>
-<script src="cordova.js" /></script>
-<script>
-		function pageLoaded()
-	{
-		document.getEventListener("deviceready",phoneReady,false);
-	}
-	
-	function phoneReady()
-	{
-	}
-	
-		function initCamera() 
-		{
-			alert();
-			navigator.camera.getPicture(onSuccess,onFail,{quality:80});	
-			var options = 
+	<script src="cordova.js"></script>
+	<title>Camera</title>
+		<script>
+			function pageLoaded()
 			{
-				quqlity:80,
-				destinationType:DATA_URL,//FILE_URL,NATIVE_URL
-				allowEdit:true,
-				encodingType:JPEG,
-				PictureSourceType:CAMERA //PHOTOLIBARY,CAMERA,SAVEDPHOTOALBUM
-			
+				document.addEventListener("deviceready",phoneReady,false);
 			}
-		
-			navigator.camera.getPicture(onSuccess,onFail,options);
-		}
-		function onSuccess(imageURL)
-		{
-			document.getElementById("pic").src = "data:image/jpeg;base64," +imageURL;
-		}
-		function onFail(message)
-		{
-			alert("error la gilerr !!");
-		}
-		
+
+			function phoneReady()
+			{
+			}
+
+			function initCamera()
+			{
+				var options = {
+					quality:80,
+					destinationType:DATA_URL, //DATA_URL,FILE_URI,NATIVE_URI
+					allowEdit:true,
+					encodingType:JPEG,
+					PictureSourceType:CAMERA //PHOTOLIBRARY,CAMERA,SAVEDPHOTOALBUM
+				}
+				navigator.camera.getPicture(onSuccess,onFail,options);
+			}
+
+			function onSuccess(imageURL)
+			{
+				document.getElementById("pic").src = "data:image/jpeg;base64," + imageURL;
+			}
+
+			function onFail(message)
+			{
+				//message = reason for failure
+			}
 		</script>
-</head>
-<body  bgcolor="#0497D6" >
-
-<br><center>
-<h1> CAmera </h1>
-<p id="msg"> </p>
-<a href="index.html">Back</a><br /><br />
-<div>
-<input type="button" value="Calculate" id="Calculate" onclick="initCamera()"  />
-</br />
-
-		<img src="" id="pic" height="400" />
-</center>
-
-</body>
-</html>
+	</head>
+	<body onload="pageLoaded()">
+		<center>
+			<a href="index.html">Back</a><br /><br />
+			<h1> CAMERA </h1>
+			<input type="button" value="Start Camera" onclick="initCamera()" />
+			<br/>
+			<img src="" id="pic" height="400" />
+		</center>
+	</body>
 </html>

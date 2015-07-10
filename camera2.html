@@ -7,41 +7,8 @@
 </style>
 <script src="cordova.js" /></script>
 <script>
-		function pageLoaded()
-	{
-		document.getEventListener("deviceready",phoneReady,false);
-	}
-	
-	function phoneReady()
-	{
-	}
-	
-		function initCamera() 
-		{
-			alert();
-			navigator.camera.getPicture(onSuccess,onFail,{quality:80});	
-			var options = 
-			{
-				quqlity:80,
-				destinationType:DATA_URL,//FILE_URL,NATIVE_URL
-				allowEdit:true,
-				encodingType:JPEG,
-				PictureSourceType:CAMERA //PHOTOLIBARY,CAMERA,SAVEDPHOTOALBUM
-			
-			}
-		
-			navigator.camera.getPicture(onSuccess,onFail,options);
-		}
-		function onSuccess(imageURL)
-		{
-			document.getElementById("pic").src = "data:image/jpeg;base64," +imageURL;
-		}
-		function onFail(message)
-		{
-			alert("error la gilerr !!");
-		}
-		
-		</script>
+
+</script>
 </head>
 <body  bgcolor="#0497D6" >
 

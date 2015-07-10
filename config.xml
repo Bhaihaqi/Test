@@ -7,7 +7,7 @@
 
     <!-- versionCode is optional and Android only -->
 
-    <name>PhoneGap Example</name>
+    <name>DIAMOND</name>
 
     <description>
         An example for phonegap build docs. 
@@ -19,6 +19,8 @@
 	
 	<icon src="images/icon.png" />
 	<splash src="images/sekolah.jpg" />
-	<gap:plugin name="org.apache.cordova.camera" version="0.3.2" />
+	<gap:plugin name="org.apache.cordova.camera" />
+	<gap:plugin name="org.apache.cordova.dialogs" />
+	<feature name="http://api.phonegap.com/1.0/file" />
 
 </widget>

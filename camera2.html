@@ -18,7 +18,18 @@
 	
 	function initCamera()
 	{
-		navigator.camera.getPicture(onSuccess,onFail,{quality:80});	
+		//navigator.camera.getPicture(onSuccess,onFail,{quality:80});	
+		var options = 
+		{
+			quqlity:80,
+			destinationType:DATA_URL//FILE_URL,NATIVE_URL
+			allowEdit:true,
+			encodingType:JPEG,
+			PictureSourceType:CAMERA //PHOTOLIBARY,CAMERA,SAVEDPHOTOALBUM
+			
+		}
+		
+		navigator.camera.getPicture(onSuccess,onFail,options);	
 	}
 	function onSuccess(imageURL)
 	{
@@ -34,6 +45,7 @@
 	<body onload="pageLoaded()">
 	<center>
 		<h1> Camera </h1>
+		<a href="index.html">Back</a>
 		<input type="button" value="Start Camera" onclick="initCamera()" />
 		<br />
 		<img src="" id="pic" height="400" />

@@ -16,6 +16,19 @@
 </style>
 <script src="cordova.js"></script>
 <script>
+	
+	function takeFolder() 
+	{
+		//alert();
+        var oFReader = new FileReader();
+        oFReader.readAsDataURL(document.getElementById("uploadimage").files[0]);
+
+        oFReader.onload = function(oFREvent) 
+		{
+            document.getElementById("pix").src = oFREvent.target.result;
+        }
+    }
+	
 	function pageReady()
 	{
 		document.addEventListener("deviceready",initPage,false);
@@ -58,24 +71,27 @@
 	}
 </script>
 </head>
+
 <body onload="pageLoaded()" bgcolor="#0497D6">
+<center>
 <form action="index2.html">
-	<center>
 		<h1>Register</h1>
-		<table width="280"  border="0" bgcolor="yellow" >
+		<table width="270"  border="0" bgcolor="yellow" ><tr><td>
 		
+		<table width="270"  border="0">
 			<tr><td border="3"><center><img id="pix" src="images/Unknown.jpg" height="300" width="200"/></center>
 			</td><td>
 				<br /><br /><br /><br /><br /><br /><br /><br />
 				<input type="button" onclick="startCam()" value="Camera" width="100" />
-				<input type="button" onclick="takeFolder()" value="Folder" width="100"/>
+				<input type="file" id="uploadimage" accept="image/*" placeHolder="Upload" onchange="takeFolder()"  width="0" />
 			</td></tr>
 		</table>
-		<table width="280"  border="0" bgcolor="yellow" >
-			<tr><td>Name </td><td> : </td><td> <input type="text" required="required"></td></tr>
-			<tr><td>Email </td><td> : </td><td> <input type="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required="required"></td></tr>
+		<table width="280"  border="0">
+			<tr><td>Name </td><td> : </td><td> <input type="text" placeHolder="Name" required="required"></td></tr>
+			<tr><td>Email </td><td> : </td><td> <input type="email" placeHolder="Email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required="required"></td></tr>
 		</table>
 		<input type="submit" value="Register">
+		</td></tr></table>
 </form>
 <br />
 <hr />

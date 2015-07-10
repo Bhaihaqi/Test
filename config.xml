@@ -16,8 +16,8 @@
     <author href="" email="bhaihaqi@gmail.com">
         Register
     </author>
-	<icon src="images/icon.png" />
-	<gap:splash src="potatoes.jpg" />
+	<icon src="images/icon2.png" />
+	<gap:splash src="Sekolah.jpg" />
 	
 	<feature name="http://api.phonegap.com/1.0/file" />
 	
